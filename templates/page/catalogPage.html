@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
+    <title>Questionator</title>
+</head>
+<body>
+    {% include 'layout/header.html' %}
+    <H1>Catalog</H1>
+    <div>
+        {% for category in categories %}
+        <a href="{% url 'question' category.group_type %}" >
+        <div>
+            <h2>{{category.title}}</h2>
+            <h3>{{category.discription}}</h3>
+        </div>
+        </a>
+        {% empty %}
+        <h2>We have no categories</h2>
+        
+        {% endfor %}
+    </div>
+
+</body>
+</html>

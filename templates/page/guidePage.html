@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'layout/header.html' %}
+    <div>
+        <h1>Guide</h1>
+        <h2>{{guide.title}}</h2>
+        <h3>{{guide.discription}}</h3>
+        
+        <div>
+            {% for modul in guide.modules.all %}
+            <h2>{{modul.title}}</h2>
+            <h3>{{modul.discription}}</h3>
+            <h2>{{modul.text}}</h2>
+            {% empty %}
+            <h2>No modules available for this guide yet.</h2>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

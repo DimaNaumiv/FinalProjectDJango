@@ -1,0 +1,14 @@
+<header>
+    <div class="box">
+        <img src="" alt="" class="icon">
+        <ul class="nav">
+            {% if request.resolver_match.url_name != 'home' %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+            {% endif %}
+            {% if request.resolver_match.url_name != 'catalog' %}
+                <li><a href="{% url 'catalog' %}">Catalog</a></li>
+            {% endif %}
+            <li><a href="">Registration</a></li>
+        </ul>
+    </div>
+</header>

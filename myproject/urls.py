@@ -17,6 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from home.views import home_page_view
+from catalog.views import catalog_page_view
+from question.views import question_page_view,generate,check
+from guide.views import guide_page_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_page_view, name='home'),
+    path('/catalog/', catalog_page_view, name='catalog'),
+    path('guide/<str:group_type>/',guide_page_view,name='guide'),
+    path('/question/<str:group_type>/', question_page_view, name='question'),
+
+    path('api/generate/<str:group_type>/<int:difficulty>/',generate, name='question_generate'),
+    path('api/check/<str:question>/<str:answer>/', check , name='answer_check')
 ]
