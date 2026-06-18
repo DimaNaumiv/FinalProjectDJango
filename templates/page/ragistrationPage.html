@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'layout/header.html' %}
+    <input>
+        <h2>Input your full name:</h2>
+        <input id="name" type="text" placeholder="name"></input>
+
+        <h2>Input your password:</h2>
+        <input id="password" type="password" placeholder="password"></input>
+
+        <h2>Confirm your password:</h2>
+        <input id="con_password" type="password" placeholder="repit password"></input>
+
+        <button onclick="SaveUser()">Save</button>
+    </div>
+</body>
+</html>

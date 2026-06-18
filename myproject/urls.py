@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page_view, name='home'),
     path('/catalog/', catalog_page_view, name='catalog'),
-    path('guide/<str:group_type>/',guide_page_view,name='guide'),
+    path('/guide/<str:group_type>/',guide_page_view,name='guide'),
     path('/question/<str:group_type>/', question_page_view, name='question'),
 
     path('api/generate/<str:group_type>/<int:difficulty>/',generate, name='question_generate'),

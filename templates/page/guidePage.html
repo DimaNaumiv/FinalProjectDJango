@@ -18,7 +18,7 @@
             {% for modul in guide.modules.all %}
             <h2>{{modul.title}}</h2>
             <h3>{{modul.discription}}</h3>
-            <h2>{{modul.text}}</h2>
+            <h4>{{modul.text}}</h4>
             {% empty %}
             <h2>No modules available for this guide yet.</h2>
             {% endfor %}
