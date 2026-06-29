@@ -10,6 +10,14 @@
 <body>
 
     {% include 'layout/header.html' %}
+    <dialog id="ModalWarning">
+        <div>
+            <button onclick="CloseModal()">X</button>
+            <h2>Warninig</h2>
+            <h3>If you are not logged in, you will not be able to save your results</h3>
+        </div>
+    </dialog>
+
     <h1>Question</h1>
 
     <button onclick="GetQuestion('{{group_type}}',1)">Generate</button>

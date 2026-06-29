@@ -1,3 +1,13 @@
+(
+    async()=>{
+        let code = await getCookie();
+        if(code){
+            return
+        }
+        let modal = document.getElementById("ModalWarning")
+        modal.showModal()
+    }
+)()
 const GetQuestion = (groupType,difficulty) =>{
     let question = document.getElementById("question");
 
@@ -21,4 +31,9 @@ const CheckAnswer=()=>{
         question.innerText = data.status
     })
 
+}
+
+const CloseModal = ()=>{
+    let modal = document.getElementById("ModalWarning")
+    modal.close()
 }

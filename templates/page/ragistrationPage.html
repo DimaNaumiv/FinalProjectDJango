@@ -9,9 +9,10 @@
 </head>
 <body>
     {% include 'layout/header.html' %}
-    <input>
+    <h1>Registration</h1>
+    <div>
         <h2>Input your full name:</h2>
-        <input id="name" type="text" placeholder="name"></input>
+        <input id="name" type="text" placeholder="name"></div>
 
         <h2>Input your password:</h2>
         <input id="password" type="password" placeholder="password"></input>
@@ -19,7 +20,8 @@
         <h2>Confirm your password:</h2>
         <input id="con_password" type="password" placeholder="repit password"></input>
 
-        <button onclick="SaveUser()">Save</button>
+        <button onclick="Authentication()">Confirm</button>
     </div>
+    <script src="{% static 'js/registaration.js' %}"></script>
 </body>
 </html>

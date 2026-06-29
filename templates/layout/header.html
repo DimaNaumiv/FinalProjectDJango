@@ -1,3 +1,4 @@
+{% load static %}
 <header>
     <div class="box">
         <img src="" alt="" class="icon">
@@ -8,7 +9,13 @@
             {% if request.resolver_match.url_name != 'catalog' %}
                 <li><a href="{% url 'catalog' %}">Catalog</a></li>
             {% endif %}
-            <li><a href="">Registration</a></li>
+            {% if request.resolver_match.url_name != 'registration' and not request.COOKIES.sessionID %}
+            <li><a href="{% url 'registration' %}">Registration</a></li>
+            {% endif %}
+            {% if request.COOKIES.sessionID %}
+            <button onclick="LogOut()">Log out</button>
+            {% endif %}
         </ul>
     </div>
+    <script src="{% static 'js/header.js' %}"></script>
 </header>

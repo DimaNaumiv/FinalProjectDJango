@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page/catalog.css' %}">
     <title>Questionator</title>
 </head>
 <body>
     {% include 'layout/header.html' %}
-    <H1>Catalog</H1>
-    <div>
+    <div class="titleBox"><H1 class="title">Catalog</H1></div>
+    <div class="list">
         {% for category in categories %}
-        <a href="{% url 'question' category.group_type %}" >
-        <div>
-            <h2>{{category.title}}</h2>
-            <h3>{{category.discription}}</h3>
+        <a class="major" href="{% url 'question' category.group_type %}" >
+        <div class="box_info">
+            <div class="upText"><h2 class="text">{{category.title}}</h2></div>
+            <div class="downText"><h3 class="text">{{category.discription}}</h3></div>
         </div>
         </a>
         {% empty %}
