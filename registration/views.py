@@ -51,7 +51,7 @@ def delete(request, session_code):
         "state" : state
     })
 
-def check(request,session_code,):
+def check_session(request,session_code,):
     state = servise.check_session_code(session_code)
     return JsonResponse({
         "state" : state

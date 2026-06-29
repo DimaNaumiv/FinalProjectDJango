@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page/question.css' %}">
     <title>Questionator</title>
 </head>
 <body>
@@ -18,18 +19,75 @@
         </div>
     </dialog>
 
-    <h1>Question</h1>
+    <dialog id="ModalWin">
+        <h2>You resolve corectly</h2>
+        <h3 id="resolve_ansver"></h3>
+        <h3 id="resolve_question"></h3>
+        <h3 id="resolve_time"></h3>
+        <h3 id="resolve_fails"></h3>
+        <h3 id="min_max"><h3>
 
-    <button onclick="GetQuestion('{{group_type}}',1)">Generate</button>
+        <div>
+            {% if request.COOKIES.sessionID %}
+            <button onclick="Save('{{group_type}}')">Save</button>
+            {% endif %}
+            <button onclick="Finish()">Finish</button>
+        </div>
+    </dialog>
+    <dialog id="ModalFail">
+        <h2>Warninig</h2>
+        <h3>Your answer is uncorect</h3>
+        <div>
+            <button onclick="Continue()">Contionue</button>
+            <button onclick="Restart('{{group_type}}')">Restart</button>
+            <button onclick="Finish()">Finish</button>
+        </div>
+    </dialog>
 
-    <div>
-        <h2 id="question">...</h2>
-        <input id="answer" type="text" placeholder="answer"></div>
+    <div class="view">
+        <div class="main">
+            <h1 class="title">Question</h1>
+            {% if request.GET.timerch == "on" %}
+            <h2 class="timer" id="timer">00:00:00:000</h2>
+            {% endif %}
+            <button onclick="Generate('{{group_type}}')">Generate</button>
+            <div>
+                <h2 id="question">...</h2>
+                <input id="answer" type="text" placeholder="answer">
+            </div>
+            <button onclick="Answer('{{ group_type }}')">Check</button>
+
+            <a href="{% url 'guide' group_type %}">Guide</a>
+        </div>
+        <div class="settings">
+            <form method="GET" action="{% url 'question' group_type %}" onsubmit="return validation()">
+            <h2>Settings</h2>
+            <div>
+                <div class="timerbox">
+                    <h3>timer:</h3>
+                    <input id="timerch" type="checkbox" name="timerch" {% if request.GET.timerch %}checked{% endif %}>
+                </div>
+                <h3>value of the constants:</h3>
+                <div class="constantsinfo">
+                    <div class="constants">
+                        <input id="minInp" class="consvalue" type="number" name="min" 
+                        value="{{ request.GET.min}}">
+
+                        <h2 style="margin-right: 15px;">min</h2>
+                    </div>
+                    <div class="constants">
+                        <input id="maxInp" class="consvalue" type="number" name="max" 
+                        value="{{ request.GET.max}}">
+                        <h2>max</h2>
+                    </div>
+                </div>
+                <!-- <h3>question type:</h3>
+                <select></select> -->
+            </div>
+            <button type="submit">Apply</button>
+            </form>
+        </div>
     </div>
-
-    <button onclick="CheckAnswer()">Check</button>
-
-    <a href="{% url 'guide' group_type %}">Guide</a>
 
 
     <script src="{% static 'js/question.js' %}"></script>

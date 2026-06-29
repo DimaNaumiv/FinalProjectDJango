@@ -19,9 +19,9 @@ from django.urls import path
 
 from home.views import home_page_view
 from catalog.views import catalog_page_view
-from question.views import question_page_view,generate,check
+from question.views import question_page_view,generate,check,save
 from guide.views import guide_page_view
-from registration.views import ragistration_page_view,ragistrate_request,delete,check,check_request
+from registration.views import ragistration_page_view,ragistrate_request,delete,check_session,check_request
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,11 +31,12 @@ urlpatterns = [
     path('/question/<str:group_type>/', question_page_view, name='question'),
     path('/registration/',ragistration_page_view,name='registration'),
 
-    path('api/generate/<str:group_type>/<int:difficulty>/',generate, name='question_generate'),
-    path('api/check/<str:question>/<str:answer>/', check , name='answer_check'),
+    path('api/generate/',generate, name='question_generate'),
+    path('api/check/', check , name='answer_check'),
+    path('api/save/',save,name='save_result'),
 
     path('api/registrate/', ragistrate_request, name='registrate_api'),
     path('api/checkuser/', check_request, name='check_user'),
     path('api/dellsession/<str:session_code>',delete,name='delete_session'),
-    path('api/checksession/<str:session_code>',check,name='check_session'),
+    path('api/checksession/<str:session_code>',check_session,name='check_session'),
 ]

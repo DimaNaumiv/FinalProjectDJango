@@ -1,0 +1,38 @@
+.main{
+    width: 80vw;
+}
+.settings{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+}
+.view{
+    display: flex;
+}
+.title{
+    width: 10vw;
+}
+.constants{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 5vh;
+    
+    input{
+        height: 3vh;
+        width: 3vw;
+        margin-right: 2vw;
+    }
+}
+.constantsinfo{
+    display: flex;
+}
+.timerbox{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    input{
+        height: 3vh;
+        width: 3vw;
+    }
+}

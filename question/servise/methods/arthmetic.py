@@ -1,6 +1,6 @@
 import re
 
-def calculate(question):
+def resolve_ar(question):
     clear_question = question.replace("=", "")
 
     if not re.match(r"^[0-9+\-*/().\s]+$", clear_question):

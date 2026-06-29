@@ -1,10 +1,10 @@
 import random
 
-def creat_question(patterns,difficulty):
+def creat_question(patterns,min_value,max_value):
     pattern = random.choice(patterns)
     constants = []
 
-    adding_constants(pattern.ignorance,difficulty,constants)
+    adding_constants(pattern.ignorance,min_value,max_value,constants)
 
     return {
         "value" :build_question(pattern.value,constants),
@@ -14,16 +14,11 @@ def creat_question(patterns,difficulty):
     #5+7+8-10*5
     #?+?+?-?*?
 
-def adding_constants(ignorance,difficulty,constants):
+def adding_constants(ignorance,min_value,max_value,constants):
     number = 0
 
     for i in range(ignorance):
-        if(difficulty == 0):
-            number = random.randint(1,10)
-        elif(difficulty == 1):
-             number = random.randint(1,100)
-        else:
-            number = random.randint(1,300)
+        number = random.randint(min_value,max_value)
 
         if(number == 0):
             number=number+1
