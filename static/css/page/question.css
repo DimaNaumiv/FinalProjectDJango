@@ -1,16 +1,114 @@
 .main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;;
+
     width: 80vw;
+
+}
+.genareteButton{
+    padding: 20px;
+
+    color: var(--very-dark-color);
+    background-color: var(--very-light-color);
+    border: 2px solid var(--very-dark-color);
+    border-radius: 15px;
+    margin-bottom: 15vh;
+}
+.genareteButton:hover{
+    color: var(--very-light-color);
+    background-color: var(--dark-color);
+
+    cursor:pointer;
+}
+.checkButton{
+    padding: 4px;
+    border-radius: 5px;
+    border: 2px var(--very-dark-color) solid;
+    background-color: var(--very-light-color);
+    color: var(--very-dark-color);
+    margin-left: 4vw;
+}
+.checkButton:hover{
+    cursor:pointer;
+    padding: 8px;
+    color: var(--very-light-color);
+    background-color: var(--dark-color);
+}
+.answer{
+    width: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--very-dark-color);
+    background-color: var(--very-light-color);
+    border: 2px solid var(--very-dark-color);
+}
+.questionBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    align-self: end;
+
+    width: 86vw;
+}
+.timerPlace{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 10vw;
 }
 .settings{
     width: 20vw;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
+
+    background-color: var(--very-light-color);
+    border: solid var(--very-dark-color) 2px;
+    border-radius: 15px;
+
+}
+.settingsField{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.settingsTitle{
+    display: flex;
+    justify-content: center;
+
+    padding: 2vh;
+    margin-bottom: 2vh;
+
+    background-color: var(--dark-color);
+
+    color: var(--very-light-color);
+
+    border-bottom: 2px solid var(--very-dark-color);
+    border-radius: 14px 14px 0px 0px;
+    width: 100%;
 }
 .view{
     display: flex;
+    height: 80vh;
 }
 .title{
+    color: var(--very-dark-color);;
     width: 10vw;
+}
+.settingsText{
+    color: var(--very-dark-color);
 }
 .constants{
     display: flex;
@@ -18,11 +116,57 @@
     justify-content: start;
     height: 5vh;
     
+    color: var(--very-dark-color);
+
     input{
         height: 3vh;
         width: 3vw;
+
         margin-right: 2vw;
+
+        color: var(--very-dark-color);
+        background-color: var(--very-light-color);
+        border: 2px solid var(--very-dark-color);
     }
+    h3{
+        margin-right: 1vw;
+    }
+}
+.apply{
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    padding: 8px;
+
+    border-radius: 5px;
+    border: 2px solid var(--very-dark-color);
+
+    background-color: var(--very-light-color);
+
+    color: var(--very-dark-color);
+}
+.apply:hover{
+    cursor:pointer;
+    padding: 12px;
+    color: var(--very-light-color);
+    background-color: var(--dark-color);
+}
+.guideButton{
+    padding: 9px;
+
+    text-decoration: none !important;
+
+    border-radius: 5px;
+    border: 2px solid var(--very-dark-color);
+
+    background-color: var(--very-light-color);
+
+    color: var(--very-dark-color);
+
+}
+.guideButton:hover{
+    cursor:pointer;
+    color: var(--very-light-color);
+    background-color: var(--dark-color);
 }
 .constantsinfo{
     display: flex;
@@ -31,8 +175,48 @@
     display: flex;
     justify-content: start;
     align-items: center;
+
+    color: var(--very-dark-color);
+    margin-bottom: 2vh;
     input{
+
         height: 3vh;
         width: 3vw;
+    
+        color: var(--very-dark-color);
+        background-color: var(--very-light-color);
+        border: 2px solid var(--very-dark-color);
     }
+}
+
+dialog:modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    button{
+        padding: 4px;
+        background-color: white;
+    }
+}
+.autofinish{
+    display: flex;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1vh;
+}
+.warninigTitle{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }

@@ -4,16 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/_variables.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/layout/background.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/page/homePage.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% include 'layout/header.html' %}
-    <div>
-        <h1>About us</h1>
-        <h3>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam error magnam, magni non autem quasi possimus? Officia voluptate asperiores vel labore saepe obcaecati ab nihil ea blanditiis distinctio minima perspiciatis architecto accusamus explicabo alias fugiat, reprehenderit in qui! Dicta sed, tenetur aliquid ullam quos, praesentium ad dolor laboriosam culpa fugiat architecto amet ipsa corrupti delectus at?<br> Excepturi, voluptate atque debitis consectetur reprehenderit hic nisi illum, consequuntur numquam quod laudantium reiciendis sunt.<br> Molestiae, dolor soluta. Recusandae earum dolor minus amet, atque porro omnis doloribus maiores eaque, exercitationem molestias, est quas cumque fugit.<br> Doloribus qui quis sequi enim id. Neque, totam accusantium?
+    <div class="elemets">
+        <h1 class="title">MMaterial</h1>
+        <h3 class="discription">
+            This project is designed to make it easy to practice and learn new math skills while spending less time searching for information and examples.
         </h3>
+        <h4 class="author">
+            Created by: Dmitro Naumov
+        </h4>
+        <a href="{% url 'catalog' %}" class="start">Let`s start</a>
     </div>
 </body>
 </html>

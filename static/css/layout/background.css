@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+
+    background: linear-gradient(to right, var(--dark-color) 0%, var(--light-color) 25%, var(--very-light-color) 50%, var(--light-color) 75%, var(--dark-color) 100%);
+    background-attachment: fixed; /* Фон не рухається при скролі */
+    min-height: 100vh; /* Розтягується на всю висоту */
+    margin: 0;
+
+}

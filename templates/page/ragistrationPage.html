@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/_variables.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/page/registration.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/layout/background.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% include 'layout/header.html' %}
-    <h1>Registration</h1>
-    <div>
+    <h1 class="title">Registration</h1>
+    <div class="elements">
         <h2>Input your full name:</h2>
-        <input id="name" type="text" placeholder="name"></div>
+        <input id="name" type="text" placeholder="name">
 
         <h2>Input your password:</h2>
         <input id="password" type="password" placeholder="password"></input>

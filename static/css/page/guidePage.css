@@ -1,0 +1,51 @@
+.guide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titleBlock{
+    display: flex;
+    width: 67vw;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: space-around;
+
+    margin-bottom: 1vh;
+}
+.guideDiscription{
+    text-align: -webkit-center;
+    margin-top: 0px;
+    margin-bottom: 5vh;
+
+    /* color: var(--very-dark-color); */
+}
+.moduls{
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    margin-left: 3vw;
+}
+.modulText{
+    margin-top: 0px;
+
+    /* color: var(--very-dark-color) */
+}
+.modulDescription{
+    margin-top: 1vh;
+
+    /* color: var(--very-dark-color) */
+}
+/* .modulTitle{
+    color: var(--very-dark-color)
+}
+.guidTitle{
+    color: var(--very-dark-color)
+} */
+
+.backButton{
+    padding: 7px;
+    border-radius: 5px;
+    border: 2px var(--very-dark-color) solid;
+    background-color: var(--very-light-color);
+    color: var(--very-dark-color);
+}

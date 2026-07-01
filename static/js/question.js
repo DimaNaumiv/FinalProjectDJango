@@ -13,6 +13,8 @@ let startTime = 0;
 let elapsedTime = 0;
 let timerInterval = null;
 
+let autofinishInterval = null;
+
 let modalfail = document.getElementById("ModalFail")
 let modalwin = document.getElementById("ModalWin")
 
@@ -112,8 +114,17 @@ const Answer = async(groupType)=>{
     }
     let result = await CheckAnswer(groupType)
 
+    if(result === false){
+        StartTimer()
+        return
+    }
+    else if(result === true){
+        return
+    }
+
     if(result == "uncorrect"){
         modalfail.showModal()
+        StartAutofinishCountdown()
         count = count+1
     }
     else{
@@ -137,7 +148,17 @@ const Answer = async(groupType)=>{
 
 const CheckAnswer= async(groupType)=>{
     let question = document.getElementById('question')
+
+    if(question.innerText === "..."||question.innerText === ""){
+        alert("First you need go genarete question")
+        return true;
+    }
+
     let answer = document.getElementById('answer')
+
+    if(answer.value === ""){
+        return false;
+    }
 
     let status = ""
 
@@ -175,10 +196,12 @@ function validation(){
 }
 
 const Continue = () =>{
+    StopAutofinishCountdown()
     modalfail.close()
     StartTimer()
 }
 const Restart = async(groupType) =>{
+    StopAutofinishCountdown()
     modalfail.close()
     alert("Get ready!!!")
     await Generate(groupType)
@@ -186,6 +209,8 @@ const Restart = async(groupType) =>{
     count = 0
 }
 const Finish = () =>{
+    StopAutofinishCountdown()
+
     modalfail.close()
     modalwin.close()
     
@@ -232,3 +257,32 @@ const Save = async(group_type) => {
 
     Finish()
 }
+
+const StartAutofinishCountdown = () => {
+    let timeLeft = 5;
+    const countdownElement = document.getElementById("finishTime");
+    
+    // Скидаємо текст на початкові 5 секунд при кожному відкритті
+    countdownElement.innerText = timeLeft; 
+
+    // Очистимо старий інтервал про всяк випадок перед створенням нового
+    if (autofinishInterval) clearInterval(autofinishInterval);
+
+    autofinishInterval = setInterval(() => {
+        timeLeft--;
+        countdownElement.innerText = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(autofinishInterval);
+            autofinishInterval = null;
+            Finish(); // Викликаємо вашу функцію Finish, коли час вийшов
+        }
+    }, 1000);
+};
+
+const StopAutofinishCountdown = () => {
+    if (autofinishInterval) {
+        clearInterval(autofinishInterval);
+        autofinishInterval = null;
+    }
+};

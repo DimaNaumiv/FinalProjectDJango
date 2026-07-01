@@ -4,23 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/_variables.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/layout/background.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/page/guidePage.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% include 'layout/header.html' %}
-    <div>
-        <h1>Guide</h1>
-        <h2>{{guide.title}}</h2>
-        <h3>{{guide.discription}}</h3>
+    <div class="guide">
+        <div class="titleBlock">
+            <button class="backButton" onclick="window.history.back()">Go back</button>
+            <h1 class="guidTitle">{{guide.title}}</h1>
+        </div>
+        <h2 class="guideDiscription">{{guide.discription}}</h2>
         
-        <div>
+        <div class="moduls">
             {% for modul in guide.modules.all %}
-            <h2>{{modul.title}}</h2>
-            <h3>{{modul.discription}}</h3>
-            <h4>{{modul.text}}</h4>
+            <h1 class="modulTitle">{{modul.title}}</h1>
+            <h2 class="modulDescription">{{modul.discription}}</h2>
+            <h3 class="modulText">{{modul.text}}</h3>
+
             {% empty %}
-            <h2>No modules available for this guide yet.</h2>
+            <h1>No modules available for this guide yet.</h1>
             {% endfor %}
         </div>
     </div>

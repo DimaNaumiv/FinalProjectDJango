@@ -3,6 +3,7 @@ const LogOut =  async () => {
         return false
     }
     deleteCookie()
+    location.reload();
     return true
 
 }

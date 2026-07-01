@@ -1,65 +1,64 @@
-*{
-    /* background-color: rgb(111, 111, 235);*/
-} 
 .list{
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 99vw;
-    background-color: white;
 }
 .major{
+    display: flex;
+    align-self: center;
+
+    margin-top: 3vh;
+
+    width: 70vw;
     text-decoration: none;
-    color: black;
+    color: var(--very-dark-color);
+    background-color: var(--very-light-color);
+}
+.major:hover{
+    color: var(--very-light-color);
+    background-color: var(--dark-color);
+
+
+    cursor:pointer;
 }
 .box_info{
     display: flex;
     justify-self: center;
     text-align: center;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: aquamarine;
-    width: 40vw;
-    height: 24vh;
-    border: solid rgb(0, 69, 148) 3px;
+    justify-content: space-between;
+    width: 70vw;
+    height: 9vh;
+    border: solid var(--very-dark-color) 3px;
+
 }
 .upText{
     display: flex;
     justify-content: center;
-    background-color: white;
     align-items: center;
     width: 20vw;
-    height: 7vh;
-    margin-bottom: 10px;
-    border: solid black 1px;
-}
-.text{
-    background-color: white;
+    height: 100%;
+    border-right: solid;
+
+
 }
 .downText{
-    background-color: white;
-    width: 20vw;
-    height: 12vh;
+    width: 48vw;
+    height: 7vh;
     display: flex;
     justify-self: center;
     align-items: center;
     text-align: center;
-    border: solid black 1px;
+
 }
 .title{
-    background-color: white;
-    border: solid black 1px;
-    padding: 5px;
+    color: var(--very-dark-color);
 }
 .titleBox{
-    margin-left: 5vw;
-    width: 10vw;
-    padding: 5px;
-    background-color: aquamarine;
-    border: solid black 1px;
-    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: center;
+
 }

@@ -1,11 +1,35 @@
 .box{
     width: 100vw;
     height: 10vh;
+
     padding: 0px 15px;
-    /* background-color: goldenrod; */
+    margin-bottom: 3vh;
+
+    background-color: var(--dark-color);
+
+    border-radius: 0px 0px 15px 15px;
+    border-bottom: solid var(--very-dark-color) 3px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.tab{
+    text-decoration: none;
+    color: var(--very-light-color);
+}
+.logOut{
+    padding: 4px;
+    border-radius: 5px;
+    border: 2px var(--very-dark-color) solid;
+    background-color: var(--very-light-color);
+    color: var(--very-dark-color);
+}
+.logOut:hover{
+    color: var(--very-light-color);
+    background-color: var(--dark-color);
+
+    cursor:pointer;
 }
 .icon{
     width: 30px;

@@ -20,6 +20,7 @@ const Authentication = async()=>{
     }
 
     addCodeCookie(result)
+    location.reload();
     return true
 
 }

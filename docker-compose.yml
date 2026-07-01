@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=HFMMaterial01072026!
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  web:
+    build: .
+    container_name: django_web
+    # sh -c чекає 10 секунд, щоб база встигла запуститися перед міграціями
+    command: >
+      sh -c "sleep 30 &&
+      python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_NAME=QuestionatorDB
+      - DB_HOST=db
+      - DB_USER=sa
+      - DB_PASSWORD=HFMMaterial01072026!
+    depends_on:
+      - db
+
+volumes:
+  mssql_data:

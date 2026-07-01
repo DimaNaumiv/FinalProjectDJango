@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,16 +80,21 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
+        'ENGINE': 'mssql_django',
         'NAME': 'QuestionatorDB',
-        'HOST': '(localdb)\\MSSQLLocalDB',
-        'USER': '',                        
-        'PASSWORD': '',                    
+        'USER': 'sa',
+        'PASSWORD': 'HFMMaterial01072026!',
+        'HOST': 'db',
+        'PORT': '1433',
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server', 
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'extra_params': 'Encrypt=yes;TrustServerCertificate=yes',
         },
     }
 }
+
+# Обов'язково додайте хости, інакше Docker-контейнер поверне помилку 400 DisallowedHost
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Password validation
